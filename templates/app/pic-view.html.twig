@@ -1,0 +1,15 @@
+{% extends '@layout/default.html.twig' %}
+
+{% block title %}Visualizar Foto{% endblock %}
+
+{% block content %}
+    <div class="row">
+        {% for image in response.fotos.foto %}
+            <div class="col-md-6">
+                <h2>{{ image.comentario }}</h2>
+                <img class="col-md-12 img-responsive pull-left" src="{{ image.foto }}">
+                <img class="col-md-12 img-responsive pull-left" src="https://maps.googleapis.com/maps/api/staticmap?center={{ image.latitude }},{{ image.longitude }}&zoom=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C{{ image.latitude }},{{ image.longitude }}&key=AIzaSyA9UhkOsdmmLXZtaGzfiKrn5jxKyx_Rf04">
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
